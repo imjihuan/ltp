@@ -13,20 +13,20 @@
       <td bgcolor="#ff0000"><b>&nbsp;FAILED&nbsp;</b></td>
       <td bgcolor="Fuchsia"><b>&nbsp;WARNING&nbsp;</b></td>
       <td bgcolor="Yellow"><b>&nbsp;BROKEN&nbsp;</b></td>
-      <td bgcolor="#8dc997"><b>&nbsp;RETIRED&nbsp;</b></td>
       <td bgcolor="Aqua"><b>&nbsp;CONFIG-ERROR&nbsp;</b></td>
+      <td bgcolor="#e3e3e3"><b>&nbsp;OTHER&nbsp;</b></td>
     </tr>
   </tbody>
 </table>
 <br>
 <b>Meaning of the following KEYWORDS in test results/logs:</b>
 <hr>
-<li><b>TPASS -</b> Indicates that the test case had the expected result and passed</li>
-<li><b>TFAIL -</b> Indicates that the test case had an unexpected result and failed.</li>
-<li><b>TBROK -</b> Indicates that the remaining test cases are broken and will not execute correctly, because some precondition not met, such as a resource not being available.</li>
-<li><b>TCONF -</b> Indicates that the test case was not written to run on the current harware or software configuration such as machine type, or, kernel version.</li>
-<li><b>TWARN -</b> Indicates that the test case experienced an unexpected or undesirable event that should not affect the test itself such as being unable to cleanup resources after the test finished.</li>
-<li><b>TINFO -</b> Specifies useful information about the status of the test that does not affect the result and does not indicate a problem.</li>
+<li><font size="2"><b>TPASS -</b> Indicates that the test case had the expected result and passed</font></li>
+<li><font size="2"><b>TFAIL -</b> Indicates that the test case had an unexpected result and failed.</font></li>
+<li><font size="2"><b>TBROK -</b> Indicates that the remaining test cases are broken and will not execute correctly, because some precondition not met, such as a resource not being available.</font></li>
+<li><font size="2"><b>TCONF -</b> Indicates that the test case was not written to run on the current harware or software configuration such as machine type, or, kernel version.</font></li>
+<li><font size="2"><b>TWARN -</b> Indicates that the test case experienced an unexpected or undesirable event that should not affect the test itself such as being unable to cleanup resources after the test finished.</font></li>
+<li><font size="2"><b>TINFO -</b> Specifies useful information about the status of the test that does not affect the result and does not indicate a problem.</font></li>
 <hr>
 
 <br>

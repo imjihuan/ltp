@@ -72,18 +72,18 @@ sub syntax() {
 }
 
 sub get_background_colour_column() {
-    if ( $detected_fail == 1 ) {
+    if ( $termination_id_value[1] == 0 ) {
+      return "#66ff66";
+    } elsif ( $termination_id_value[1] == 1 ) {
       return "#ff0000";
-    } elsif ( $detected_brok == 1 ) {
+    } elsif ( $termination_id_value[1] == 2 ) {
       return Yellow;
-    } elsif ( $detected_warn == 1 ) {
+    } elsif ( $termination_id_value[1] == 4 ) {
       return Fuchsia;
-    } elsif ( $detected_retr == 1 ) {
-      return "#8dc997";
-    } elsif ( $detected_conf == 1 ) {
+    } elsif ( $termination_id_value[1] == 32 ) {
       return Aqua;
     } else {
-      return "#66ff66";
+      return "#e3e3e3"; #Cannot find proper pre-defined ter_id, not painting color to line.
     }
 }
 
