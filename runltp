@@ -936,6 +936,7 @@ EOF
 
 	EOF
     }
+    echo $DEFAULT_FILE_NAME_GENERATION_TIME > $LTPROOT/lasttestcycle
 }
 
 set_block_device()
