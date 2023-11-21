@@ -218,7 +218,7 @@ main()
     local TAG_RESTRICT_STRING=
     local PAN_COMMAND=
     local RANDOMRUN=0
-    local DEFAULT_FILE_NAME_GENERATION_TIME=`date +"%Y_%m_%d-%Hh_%Mm_%Ss"`
+    local DEFAULT_FILE_NAME_GENERATION_TIME=`date +"%Y_%m_%d-%H_%M_%S"`
     local scenfile=
     local ZOOFILE=$$
 
@@ -504,7 +504,7 @@ main()
           ALT_DIR_OUT=1
        fi
     fi
-
+    
     # If we need, create the output directory
     [ "$ALT_DIR_OUT" -eq 1 ] && \
     {
@@ -717,22 +717,23 @@ EOF
     #$PAN_COMMAND #Duplicated code here, because otherwise if we fail, only "PAN_COMMAND" gets output
 
     ## Display the Output/Log/Failed/HTML file names here
-    printf "LOG File: "
+    printf "LOG File:\t\t"
     echo $LOGFILE | cut -b4-
 
     if [ "$OUTPUTFILE" ]; then
-       printf "OUTPUT File: "
+       printf "OUTPUT File:\t\t"
        echo $OUTPUTFILE | cut -b4-
     fi
 
-    printf "FAILED COMMAND File: "
+    printf "FAILED COMMAND File:\t"
     echo $FAILCMDFILE | cut -b4-
 
-   printf "TCONF COMMAND File: "
+   printf "TCONF COMMAND File:\t"
    echo $TCONFCMDFILE | cut -b4-
 
     if [ "$HTMLFILE" ]; then
-       echo "HTML File: $HTMLFILE"
+       printf "HTML File:\t\t"
+       echo $HTMLFILE
     fi
 
     echo "Running tests......."
@@ -841,9 +842,9 @@ EOF
        LOGS_DIRECTORY="$LTPROOT/results"
        export TEST_OUTPUT_DIRECTORY="$LTPROOT/output"
        export TEST_LOGS_DIRECTORY=$LOGS_DIRECTORY
-       echo "Generating HTML Output.....!!"
+       echo "Generating HTML Output..."
        ( perl $LTPROOT/bin/genhtml.pl $LTPROOT/bin/html_report_header.txt test_start test_end test_output execution_status $OUTPUT_FILE  > $HTMLFILE; )
-       echo "Generated HTML Output.....!!"
+       echo "Generated HTML Output..."
        echo "Location: $HTMLFILE";
 
     fi
@@ -918,23 +919,23 @@ EOF
     fi
 
     [ ! -z "$QUIET_MODE" ] && { echo "INFO: Test end time: $(date)" ; }
-
     [ "$GENLOAD" -eq 1 ] && { killall -9 genload  >/dev/null 2>&1; }
     [ "$NETPIPE" -eq 1 ] && { killall -9 NPtcp  >/dev/null 2>&1; }
-
     [ "$ALT_DIR_OUT" -eq 1 ] || [ "$ALT_DIR_RES" -eq 1 ] && \
     {
     cat <<-EOF >&1
 
        ###############################################################
-
             Done executing testcases.
-            LTP Version:  $version_date
+
+            LTP Version:    $version_date
+            Start Time:     $DEFAULT_FILE_NAME_GENERATION_TIME
+            End Time:       `date +"%Y_%m_%d-%H_%M_%S"`
+
        ###############################################################
 
 	EOF
     }
-    exit $VALUE
 }
 
 set_block_device()
